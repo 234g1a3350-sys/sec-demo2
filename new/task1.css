@@ -1,0 +1,22 @@
+
+body{
+   /* margin-top: 20px;*/
+    background: rgba(93, 158, 106, 0.5);
+   /* margin-left: 35%;*/
+   
+    
+}
+button:hover{
+    background-color: bisque;
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+/*.ge{
+    
+    background: rgba(22, 127, 154);
+    border-radius: 20%;
+   margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 70%;
+
+}*/
