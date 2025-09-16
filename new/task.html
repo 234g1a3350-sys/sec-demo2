@@ -1,41 +1,48 @@
 
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
-    <title>To-Do List</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="task1.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <title>To do List</title>
 </head>
 <body>
-    <div class="ge">
-        <h1>To-Do List</h1>
-        <input type="text" id="taskinput" placeholder="Enter task">
-        <button id="addlist">Add Task</button>
-        <ul id="tasklist"></ul>
-    </div>
-
-    <script>
-        $(document).ready(function(){
-            // Add Task
-            $("#addlist").click(function(){
-                let task = $("#taskinput").val();
-                if(task){
-                    // Add task with its own Complete button
-                    $("#tasklist").append(
-                        "<li>" + task + " <button class='complete-btn'>Complete</button></li>"
-                    );
-                    $("#taskinput").val('');
-                }
-            });
-
-            // Handle Complete button clicks (works for new tasks too)
-            $("#tasklist").on("click", ".complete-btn", function(){
-                let li = $(this).parent();
-                // Toggle strike-through
-                
-            });
-        });
-    </script>
+    <H1> To Do List </H1>
+    <br><br>
+    <div><h2>These are your tasks to complete</h2>
+    <ul id="taskList">
+      <li>Sample Task 1 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+      <li>Sample Task 2 <button id='done'>Complete</button> <button class='delete'>Delete</button></li>
+    </ul>
+    <input type="text" id="taskInput" placeholder="Enter new task">
+    <button id="addTask">Add Task</button></div>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+   
+    $("#addTask").click(function(){
+  let task = $("#taskInput").val();
+  if(task !== ""){
+    $("#taskList").append(
+      `<li>${task}
+        <button id='done'>Complete</button>
+        <button class='delete'>Delete</button>
+      </li>`
+    );
+    $("#taskInput").val("");
+  }
+});
 
+// Mark as complete
+$("#taskList").on("click", "#done", function(){
+  $(this).parent().css("background-color","yellow");
+});
+
+// Delete
+$("#taskList").on("click", ".delete", function(){
+  $(this).parent().remove();
+});
+
+});
+</script>
